@@ -1,2 +1,2 @@
-# alx-low_level_programming
-Programming in C language 
+Programming in C language
+0x00. C - Hello, World 
