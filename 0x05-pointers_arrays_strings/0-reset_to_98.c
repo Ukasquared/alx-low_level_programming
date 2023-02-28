@@ -2,7 +2,7 @@
 /**
  * reset_to_98 - resets the argument to another value
  *
- * Return - void
+ * Return: void
  */
 
 void reset_to_98(int *n)
