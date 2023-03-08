@@ -4,7 +4,7 @@
  * @s: pointer to argument
  * @b: pointer to argument
  * @n: bytes of memory area
- * Return:  a pointer to the memory area s
+ * Return: a pointer to the memory area s
  */
 
 char *_memset(char *s, char b, unsigned int n)
@@ -17,5 +17,5 @@ char *_memset(char *s, char b, unsigned int n)
 
 		i++;
 	}
-	return (s)
+	return (s);
 }
