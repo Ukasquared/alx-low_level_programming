@@ -1,14 +1,14 @@
 #include "main.h"
-int is_prime_number(int n)
-int div(int n, int d)
+int is_prime_number(int n);
+int prime(int n, int d);
 /**
- * div - checks if divisible
+ * prime - checks if divisible
  * @n: receives possible numbers
  * @d: division value
  * Return: 1 pass 0 fail
  */
 
-int div(int n, int d)
+int prime(int n, int d)
 {
 	if (n % d == 0)
 		return (0);
@@ -32,5 +32,5 @@ int is_prime_number(int n)
 		return (0);
 	if (n >= 2 && n <= 3)
 		return (1);
-	return (div(n, d));
+	return (prime(n, d));
 }
