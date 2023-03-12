@@ -10,11 +10,11 @@
 int check_palindrome(char *s, int i, int j)
 {
 	if (i < j)
-	{	if (s[i] == s[j])
+	{
+		if (s[i] == s[j])
 			return (check_palindrome(s, i + 1, j + 1));
 	}
-	else
-		return (0);
+	return (0);
 }
 
 /**
@@ -31,8 +31,7 @@ int str_len(char *s)
 	{
 		return (1 + str_len(s + 1));
 	}
-	else
-		return (0);
+	return (0);
 }
 
 /**
