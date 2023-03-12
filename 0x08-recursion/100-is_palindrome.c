@@ -10,8 +10,9 @@
 int check_palindrome(char *s, int i, int j)
 {
 	if (i < j)
-		if (s[i] == s[j])
-			return (check_palidrome(s, i + 1, j + 1));
+	{	if (s[i] == s[j])
+			return (check_palindrome(s, i + 1, j + 1));
+	}
 	else
 		return (0);
 }
