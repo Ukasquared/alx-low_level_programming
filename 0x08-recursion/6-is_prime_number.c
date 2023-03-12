@@ -11,9 +11,9 @@ int prime(int n, int d)
 {
 	if (n == d)
 		return (1);
-	if (n % d == 0)
+	else if (n % d == 0)
 		return (0);
-	prime(n, (d + 1));
+	else prime(n, (d + 1));
 }
 
 /**
