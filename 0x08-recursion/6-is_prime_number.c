@@ -1,5 +1,4 @@
 #include "main.h"
-int is_prime_number(int n);
 int prime(int n, int d);
 /**
  * prime - checks if divisible
@@ -10,12 +9,11 @@ int prime(int n, int d);
 
 int prime(int n, int d)
 {
+	if (n == d)
+		return (1);
 	if (n % d == 0)
 		return (0);
-	if (d == n / 2)
-		return (1);
-
-	return (div(n, d + 1));
+	prime(n, (d + 1));
 }
 
 /**
