@@ -13,7 +13,8 @@ int prime(int n, int d)
 		return (1);
 	else if (n % d == 0)
 		return (0);
-	else return(prime(n, (d + 1)));
+	else
+		return (prime(n, (d + 1)));
 }
 
 /**
@@ -21,6 +22,7 @@ int prime(int n, int d)
  * @n: recieves possible numbers
  * Return: 0 fail. 1 pass
  */
+
 int is_prime_number(int n)
 {
 	int d;
