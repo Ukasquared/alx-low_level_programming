@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * main - Entry point of program execution
+ * main - Multiplies two numbers
  * code by ukasquared
  * @argc: argument count
  * @argv: argument vector
@@ -11,16 +11,15 @@
 
 int main(int argc, char *argv[])
 {
-	int i, mulValue = 1;
+	int a, b;
 
-	for (i = 0; i < argc; i++)
+	if (argc == 1)
+		printf("Error\n");
+	else if (argc >= 2)
 	{
-		if (i == 0)
-			printf("Error\n");
-		else if (i >= 1)
-			mulValue *= atoi(argv[i]);
+		a = atoi(argv[1]);
+		b = atoi(argv[2]);
+		printf("%d\n", a * b);
 	}
-	printf("%d\n", mulValue);
-
 	return (0);
 }
