@@ -1,6 +1,6 @@
 #ifndef VARIADIC_FUNCTIONS_H_
 #define VARIADIC_FUNCTIONS_H_
-#include <stdarg>
+#include <stdarg.h>
 
 
 int _putchar(char c);
