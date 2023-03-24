@@ -16,12 +16,12 @@ int sum_them_all(const unsigned int n, ...)
 	va_start(list_args, n);
 	if (n != 0)
 	{
-	for (int i = 0; i < n; i++)
-	{
+		for (int i = 0; i < n; i++)
+		{
 		sum += va_args(list_args, int)
-	}
-	va_end(list_args);
-	return (sum);
+		}
+		va_end(list_args);
+		return (sum);
 	}
 
 	return (0);
