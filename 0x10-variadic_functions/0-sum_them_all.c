@@ -2,8 +2,8 @@
 /**
  * sum_them_all - function that returns the
  * sum of all its parameters
- *@n: argument
- * Return: sum
+ * @n: argument
+ * Return: sum success 0 fail
  */
 
 
