@@ -12,14 +12,11 @@ size_t print_list(const list_t *h)
 	size_t count = 0;
 
 	ptr = h;
-	if (ptr == NULL)
-	{
-		printf("List is empty");
-	}
+
 	while (ptr != NULL)
 	{
 		if (ptr->str == NULL)
-			printf("[%d] %s", ptr->len, "(nil)");
+			printf("[0] %s", "(nil)");
 		else
 			printf("[%d] %s", ptr->len, ptr->str);
 		count++;
