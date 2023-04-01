@@ -1,6 +1,7 @@
 #include "lists.h"
 /**
-* add_node_end - function that adds a new node at the beginning of a list_t list.
+* add_node_end - function that adds
+* a new node at the beginning of a list_t list.
 *
 * @head: read pointer to null
 * @str: read the member value
