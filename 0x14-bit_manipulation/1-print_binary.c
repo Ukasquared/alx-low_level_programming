@@ -8,7 +8,7 @@
 
 void print_binary(unsigned long int n)
 {
-	int i, check = 0 ;
+	int i, check = 0;
 
 	unsigned long int decimal_num;
 
