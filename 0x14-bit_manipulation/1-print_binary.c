@@ -8,7 +8,7 @@
 
 void print_binary(unsigned long int n)
 {
-	int i;
+	int i, check = 0 ;
 
 	unsigned long int decimal_num;
 
@@ -17,8 +17,13 @@ void print_binary(unsigned long int n)
 	{
 		decimal_num = n >> i;
 		if (decimal_num & 1)
+		{
 			_putchar('1');
-		else
+			check += 1;
+		}
+		else if (check)
 			_putchar('0');
 	}
+	if (check == 0)
+		_putchar('0');
 }
