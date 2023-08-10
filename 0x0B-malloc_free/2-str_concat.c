@@ -44,9 +44,9 @@ char *str_concat(char *s1, char *s2)
 
 int _strlen(char *str)
 {
-	int i;
+	int n = 0;
 
-	while (str[i] != '\0')
-	i++;
-	return (i);
+	while (str[n] != '\0')
+	n++;
+	return (n);
 }
