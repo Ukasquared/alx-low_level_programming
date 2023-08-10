@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-* main - function that concatenates two strings
+* str_concat - function that concatenates two strings
 *
 * @s1: first string
 * @s2: second string
@@ -14,13 +14,15 @@ char *str_concat(char *s1, char *s2)
 
 	int i, j, len1, len2;
 
-	len1 = _strlen(s1);
-	len2 = _strlen(s2);
 
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
+
+	len1 = _strlen(s1);
+	len2 = _strlen(s2);
+
 	ptr = malloc(sizeof(char) * (len1 + len2 + 1));
 	if (ptr == NULL)
 		return (NULL);
