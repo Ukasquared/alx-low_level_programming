@@ -1,5 +1,7 @@
 #include "main.h"
 
+void _memset(char *c, int b, int size);
+
 /**
 * _calloc - allocates memory for an array
 *
@@ -11,14 +13,28 @@
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	char *ptr;
-	unsigned int i;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 	ptr = malloc(nmemb * size);
 	if (ptr == NULL)
 		return (NULL);
-	for (i = 0; i < nmemb; i++)
-		ptr[i] = 0;
+	_memset(ptr, 0, nmemb * size);
 	return (ptr);
+}
+
+/**
+* _memset- set memory to 0
+* @c: arg
+* @b: arg
+* @size: arg
+* Return:void
+*/
+
+void _memset(char *c, int b, int size)
+{
+	int i;
+
+	for (i = 0; i < size; i++)
+		c[i] = b;
 }
