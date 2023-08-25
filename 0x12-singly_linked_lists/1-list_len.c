@@ -1,10 +1,10 @@
 #include "lists.h"
 
 /**
- * print_list - check the code
+ * list_len - return list length
  *
  * @h: takes the list
- * Return: Always 0.
+ * Return: Always list len.
  */
 
 size_t list_len(const list_t *h)
