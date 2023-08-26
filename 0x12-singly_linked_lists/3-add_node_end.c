@@ -28,5 +28,5 @@ list_t *add_node_end(list_t **head, const char *str)
 			mov_ptr = mov_ptr->next;
 		mov_ptr->next = newNode;
 	}
-	return (mov_ptr);
+	return (*head);
 }
