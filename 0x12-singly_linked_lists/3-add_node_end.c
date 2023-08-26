@@ -2,7 +2,7 @@
 
 /**
  * *add_node_end - add a node at the beginning of a list
- * @head: recieves a null r existing node
+ * @head: recieves a null or existing node
  * @str: string
  * Return: Address of new element.
  */
@@ -10,18 +10,20 @@
 list_t *add_node_end(list_t **head, const char *str)
 {
 
-	list_t *ptr = malloc(sizeof(list_t));
-	list_t *mov_ptr = NULL;
+	list_t *newNode = malloc(sizeof(list_t));
+	list_t *mov_ptr = *head;
 
-	if (ptr == NULL)
+	if (newNode == NULL)
 		return (NULL);
-	ptr->str = strdup(str);
-	ptr->len = strlen(str);
+	newNode->str = strdup(str);
+	newNode->len = strlen(str);
 	if (*head == NULL)
-		*head = ptr;
-	if (*head != NULL)
-	move_ptr = head;
-	while ( move_ptr && *move_ptr->next == NULL)
-		
-	return (*head);
+		*head = newNode;
+	else if (*head != NULL)
+	{
+		while (mov_ptr->next != NULL)
+			mov_ptr = mov_ptr->next;
+		mov_ptr->next = newNode;
+	}
+	return (mov_ptr);
 }
