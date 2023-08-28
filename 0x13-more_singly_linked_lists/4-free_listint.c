@@ -2,7 +2,7 @@
 
 /**
  * free_listint - frees the list
- * 
+ *
  * @head:linked list
  * Return: void
  */

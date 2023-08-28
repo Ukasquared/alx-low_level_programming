@@ -2,7 +2,7 @@
 
 /**
  * add_nodeint - check the code
- * 
+ *
  * @head:linked list
  * @n: node data
  * Return: address of new element

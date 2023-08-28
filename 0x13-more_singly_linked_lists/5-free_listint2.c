@@ -2,16 +2,17 @@
 
 /**
  * free_listint2 - frees the linked list
- * 
+ *
  * @head:linked list
  * Return: void
  */
 
 void free_listint2(listint_t **head)
 {
-	if (head == NULL)
-		return NULL
 	listint_t mov_ptr;
+
+	if (head == NULL)
+		return (NULL);
 	while (*head != NULL)
 	{
 		mov_ptr = *head;

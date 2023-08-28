@@ -2,7 +2,7 @@
 
 /**
  * add_nodeint_end - adds a node at the end of a list
- * 
+ *
  * @head:linked list
  * @n: node data
  * Return: number of nodes.
