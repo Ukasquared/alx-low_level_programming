@@ -9,8 +9,8 @@
 
 size_t listint_len(const listint_t *h)
 {
-	int count;
-	listint_t mov_ptr = h;
+	int count = 0;
+	const listint_t *mov_ptr = h;
 
 	while (mov_ptr != NULL)
 	{
