@@ -20,8 +20,9 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 	while (mov_ptr != NULL)
 	{
 		count++;
-		if (count == index && mov_ptr != NULL)
+		if ((count - 1) == index)
 			return (mov_ptr);
+		mov_ptr = mov_ptr->next;
 	}
-	return (0);
+	return (NULL);
 }
