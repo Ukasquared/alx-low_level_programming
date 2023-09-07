@@ -52,6 +52,7 @@ void copy_text_to_file(const char *file_from, char *file_to)
 	if (wr == -1)
 		error2(buf, file_to);
 	closefd(fd_no1, fd_no2);
+	free(buf);
 }
 
 /**
