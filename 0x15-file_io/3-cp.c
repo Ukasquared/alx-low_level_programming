@@ -28,29 +28,28 @@ int main(int ac, char **av)
  */
 void copy_text_to_file(const char *file_from, char *file_to)
 {
-	int fd_no1, fd_no2, wr, rd;
+	int fd_no1, fd_no2, wr, buff;
 	const int buf_size = 1024;
 	char *buf = malloc(sizeof(char) * buf_size);
 
+	buff = 1024;
 	if (!buf)
 		exit(-1);
 
-	if (!file_from)
-		error1(buf, file_from);
 	fd_no1 = open(file_from, O_RDONLY);
 	if (fd_no1 == -1)
 		error1(buf, file_from);
-	rd = read(fd_no1, buf, buf_size);
-	if (rd == -1)
-		error1(buf, file_from);
-	if (!file_to)
-		error2(buf, file_to);
 	fd_no2 = open(file_to, O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0664);
 	if (fd_no2 == -1)
 		error2(buf, file_to);
-	wr = write(fd_no2, buf, rd);
-	if (wr == -1)
-		error2(buf, file_to);
+	while (buff == buf_size)
+	{	buff = read(fd_no1, buf, buf_size);
+		if (buff == -1)
+			error1(buf, file_from);
+		wr = write(fd_no2, buf, buff);
+		if (wr == -1)
+			error2(buf, file_to);
+	}
 	closefd(fd_no1, fd_no2);
 	free(buf);
 }
