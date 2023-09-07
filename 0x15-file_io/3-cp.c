@@ -45,7 +45,7 @@ void copy_text_to_file(const char *file_from, char *file_to)
 		error1(buf, file_from);
 	if (!file_to)
 		error2(buf, file_to);
-	fd_no2 = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	fd_no2 = open(file_to, O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0664);
 	if (fd_no2 == -1)
 		error2(buf, file_to);
 	wr = write(fd_no2, buf, rd);
