@@ -15,59 +15,42 @@ int main(int ac, char **av)
 		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	copy_text_to_file(av[0], av[1], av[2]);
+	copy_text_to_file(av[1], av[2]);
 	return (0);
 }
 
 
 /**
  * copy_text_to_file - copy text to new file
- * @cmd: copy command
  * @file_from: copy from
  * @file_to: copy to
  * Return: Always success or failure by exit code.
  */
-void copy_text_to_file(const char *cmd, const char *file_from, char *file_to)
+void copy_text_to_file(const char *file_from, char *file_to)
 {
-	int fd_no1, fd_no2, wr, rd, BUFFERSIZE = 1024;
-	char buf[BUFFERSIZE];
+	int fd_no1, fd_no2, wr, rd;
+	const int buf_size = 1024;
+	char *buf = malloc(sizeof(char) * buf_size);
+
+	if (!buf)
+		exit(-1);
 
 	if (!file_from)
-	{
-		dprint(2, "Error: Can't read from file %s,", file_from);
-		exit(98);
-	}
+		error1(buf, file_from);
 	fd_no1 = open(file_from, O_RDONLY);
 	if (fd_no1 == -1)
-	{
-		dprint(2, "Error: Can't read from file %s,", file_from);
-		exit(98);
-	}
-	rd = read(fd_no1, buf, BUFFERSIZE);
+		error1(buf, file_from);
+	rd = read(fd_no1, buf, buf_size);
 	if (rd == -1)
-	{
-		dprint(2, "Error: Can't read from file %s,", file_from);
-		exit(98);
-	}
+		error1(buf, file_from);
 	if (!file_to)
-	{
-		dprint(2, "Error: Can't write from file %s,", file_to);
-		exit(99);
-	}
-
+		error2(buf, file_to);
 	fd_no2 = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd_no2 == -1)
-	{
-		dprint(2, "Error: Can't write from file %s,", file_to);
-		exit(99);
-	}
+		error2(buf, file_to);
 	wr = write(fd_no2, buf, rd);
 	if (wr == -1)
-	{
-		dprint(2, "Error: Can't write from file %s,", file_to);
-		exit(99);
-
-	}
+		error2(buf, file_to);
 	closefd(fd_no1, fd_no2);
 }
 
@@ -90,4 +73,30 @@ void closefd(int fd_no1, int fd_no2)
 	}
 	close(fd_no1);
 	close(fd_no2);
+}
+
+/**
+ * error1 - prints error text for read
+ * @buf: buffer
+ * @file_from: file to copy from
+ * Return: void
+ */
+void error1(char *buf, const char *file_from)
+{
+	free(buf);
+	dprintf(STDERR_FILENO, "Error: Can't read from file %s,", file_from);
+	exit(98);
+}
+
+/**
+ * error2 - prints error text for write
+ * @buf: buffer
+ * @file_to: file to copy to
+ * Return: void
+ */
+void error2(char *buf, char *file_to)
+{
+	free(buf);
+	dprintf(STDERR_FILENO, "Error: Can't write from file %s,", file_to);
+	exit(99);
 }
