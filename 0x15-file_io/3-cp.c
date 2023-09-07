@@ -12,7 +12,7 @@ int main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	copy_text_to_file(av[1], av[2]);
@@ -71,8 +71,6 @@ void closefd(int fd_no1, int fd_no2)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_no2);
 		exit(100);
 	}
-	close(fd_no1);
-	close(fd_no2);
 }
 
 /**
