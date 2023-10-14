@@ -3,21 +3,22 @@
 /**
  * add_dnodeint_end - add a node to the end a list
  * @h: head node
+ * @n: data
  * Return: address of new node if succesful or NULL
  */
 
  dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
  {
-    dlistint_t *ptr;
+    dlistint_t *ptr, *new;
     if (head == NULL)
         return (NULL);
     new = malloc(sizeof(dlistint_t));
     if (!new)
         return (NULL);
-    new->n = n
+    new->n = n;
     new->prev = NULL;
     new->next = NULL;
-    if (*head == NUll)
+    if (*head == NULL)
     {
         new->next = *head;
         *head = new;
