@@ -27,7 +27,6 @@
 		}
 		(*head)->prev = new;
 		new->next = *head;
-		new->prev = new;
 		*head = new;
 		return (*head);
 	}
