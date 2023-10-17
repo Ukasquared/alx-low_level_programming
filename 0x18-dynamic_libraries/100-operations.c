@@ -36,8 +36,8 @@ int mul(int a, int b)
 
 /**
  * div - divides one integer by another
- * @a: integer to be divided
- * @b: integer by which a will be divided
+ * @a: integer
+ * @b: integer
  *
  * Return: quotient of the two intergers
  */
@@ -48,11 +48,11 @@ int div(int a, int b)
 
 /**
  * mod - finds modulus of a number
- * @a: integer to be divided
- * @b: integer by which a will be divided
+ * @a: integer
+ * @b: integer
  *
  * Return: modulus of a by b
-        */
+ */
 int mod(int a, int b)
 {
 	return (a % b);
