@@ -15,6 +15,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	int status;
 	const unsigned char *keys = (const unsigned char *)key;
 
+	 /* test case */
+	 if (!ht || !keys || *keys == '\0' || !value)
+		return (0);
+
 	hash_value = key_index(keys, ht->size);
 	status = create_pair(ht, keys, value, hash_value);
 	if (status == 0)
@@ -40,9 +44,6 @@ int create_pair(hash_table_t *ht, const unsigned char *key,
 	const char *keys = (const char *)key;
 	char *new_value;
 
-	/* test case */
-	if (!ht || !keys || *keys == '\0' || !value)
-		return (0);
 	/* if no collision */
 	if (ht->array[hash_value] == NULL)
 	{
