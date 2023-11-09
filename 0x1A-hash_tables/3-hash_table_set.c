@@ -13,8 +13,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int hash_value;
 	int status;
-	const unsigned char *keys = (const unsigned char*)key;
-	
+	const unsigned char *keys = (const unsigned char *)key;
+
 	hash_value = key_index(keys, ht->size);
 	status = create_pair(ht, keys, value, hash_value);
 	if (status == 0)
@@ -33,16 +33,16 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 * Return: 1 if it succeeded, 0 otherwise
 */
 
-int create_pair(hash_table_t *ht, const unsigned char *key, const char *value, unsigned long int hash_value)
+int create_pair(hash_table_t *ht, const unsigned char *key,
+		const char *value, unsigned long int hash_value)
 {
 	hash_node_t *temp, *new_node;
-	const char *keys = (const char*)key;
+	const char *keys = (const char *)key;
 	char *new_value;
 
 	/* test case */
 	if (!ht || !keys || *keys == '\0' || !value)
 		return (0);
-
 	/* if no collision */
 	if (ht->array[hash_value] == NULL)
 	{
@@ -52,7 +52,6 @@ int create_pair(hash_table_t *ht, const unsigned char *key, const char *value, u
 			return (0);
 		ht->array[hash_value] = new_node;
 	}
-
 	if (ht->array[hash_value])
 	{
 		/* in the case of collision */
@@ -62,7 +61,7 @@ int create_pair(hash_table_t *ht, const unsigned char *key, const char *value, u
 			free(ht->array[hash_value]->value);
 			new_value = strdup(value);
 			if (!new_value)
-				return(0);
+				return (0);
 			ht->array[hash_value]->value = new_value;
 		}
 		else
