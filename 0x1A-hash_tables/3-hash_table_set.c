@@ -81,7 +81,7 @@ int create_pair(hash_table_t *ht, const unsigned char *key,
 
 /**
 * add_node - add node to the begining of a linked list
-* @head: head of list
+*
 * @key: key of node
 * @value: value of key
 * Return: new node if successful or NULL
