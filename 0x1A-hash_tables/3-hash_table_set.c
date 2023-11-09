@@ -45,9 +45,7 @@ int create_pair(hash_table_t *ht, const unsigned char *key, const char *value, u
 	if (!ht)
 		return (0);
 	arr = ht->array;
-	/* test case */
-	if (!arr)
-		return (0);
+
 	/*get the array at hash_value */
 	current = arr[hash_value];
 	/* if no collision */
