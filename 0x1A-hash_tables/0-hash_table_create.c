@@ -9,19 +9,17 @@
 hash_table_t *hash_table_create(unsigned long int size)
 {
 	hash_table_t *table = NULL;
-	hash_node_t **arr = NULL;
 	unsigned long int i;
 
 	/* allocate memory for struct) */
 	table = malloc(sizeof(table));
 	if (!table)
 		return (NULL);
-	arr = malloc(sizeof(hash_node_t *) * size);
-	if (!arr)
+	table->array = malloc(sizeof(hash_node_t *) * size);
+	if (!(table->array))
 		return (NULL);
 	table->size = size;
 	for (i = 0; i < size; i++)
-		*(arr + i) = NULL;
-	table->array = arr;
+		*((table->array) + i) = NULL;
 	return (table);
 }
