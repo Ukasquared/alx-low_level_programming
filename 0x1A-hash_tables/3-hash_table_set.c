@@ -62,7 +62,11 @@ int create_pair(hash_table_t *ht, const unsigned char *key,
 			free(ht->array[hash_value]->value);
 			new_value = strdup(value);
 			if (!new_value)
+			{
+				free(ht->array[hash_value]->key);
+				free(ht->array[hash_value]);
 				return (0);
+			}
 			ht->array[hash_value]->value = new_value;
 		}
 		else
@@ -99,6 +103,9 @@ hash_node_t *add_node(const char *key, const char *value)
 	node->value = strdup(value);
 	/* test case for stdrup */
 	if (!(node)->key || !(node)->value)
+	{
+		free(node);
 		return (NULL);
+	}
 	return (node);
 }
