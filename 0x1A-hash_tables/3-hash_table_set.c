@@ -44,45 +44,34 @@ int create_pair(hash_table_t *ht, const unsigned char *key,
 	const char *keys = (const char *)key;
 	char *new_value;
 
-	/* if no collision */
-	if (ht->array[hash_value] == NULL)
-	{
-		/* allocate memory */
-		new_node = add_node(keys, value);
-		if (new_node == NULL)
-			return (0);
-		ht->array[hash_value] = new_node;
-	}
 	if (ht->array[hash_value])
 	{
-		/* in the case of collision */
-		/* update value */
-		if (strcmp(ht->array[hash_value]->key, keys) == 0)
+		/* in the case of collision , update value , check for key in the linked list, tranversing it */
+		temp = ht->array[hash_value];
+		while (temp != NULL)
 		{
-			free(ht->array[hash_value]->value);
-			new_value = strdup(value);
-			if (!new_value)
+			if (strcmp(temp->key, keys) == 0)
 			{
-				free(ht->array[hash_value]->key);
-				free(ht->array[hash_value]);
-				return (0);
+				new_value = strdup(value);
+				if (!new_value)
+					return (0);
+				free(temp->value);
+				temp->value = new_value;
+				return (1);
 			}
-			ht->array[hash_value]->value = new_value;
-		}
-		else
-		{
-			/* add node at the begining of list */
-			temp = ht->array[hash_value];
-			new_node = add_node(keys, value);
-			if (new_node == NULL)
-				return (0);
-			ht->array[hash_value] = new_node;
-			new_node->next = temp;
+			temp = temp->next;
 		}
 	}
+
+	/* if no collision */
+	/* add node at the begining of list */
+	new_node = add_node(keys, value);
+	if (new_node == NULL)
+		return (0);
+	new_node->next = ht->array[hash_value];
+	ht->array[hash_value] = new_node;
 	return (1);
 }
-
 
 /**
 * add_node - add node to the begining of a linked list
@@ -101,8 +90,9 @@ hash_node_t *add_node(const char *key, const char *value)
 		return (NULL);
 	node->key = strdup(key);
 	node->value = strdup(value);
+	node->next = NULL;
 	/* test case for stdrup */
-	if (!(node)->key || !(node)->value)
+	if (node->key == NULL || node->value == NULL)
 	{
 		free(node);
 		return (NULL);
