@@ -1,0 +1,29 @@
+#this makefile will build and also delete programs
+# list of variables
+CC = gcc
+SRC = school.c main.c
+OBJ = $(SRC:.c=.o) #transforms .c files into .o files
+NAME = school
+RM = rm
+
+# builds the program
+all : $(NAME)
+
+# builds executable
+$(NAME) : $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+%.o : %.c m.h
+	$(CC) -c $< -o $@
+
+clean :
+	$(RM) -f *~ $(NAME)
+
+oclean :
+	$(RM) -f $(OBJ)
+
+fclean:
+	$(RM) -f *~ $(NAME)
+	$(RM) -f $(OBJ)
+
+re : clean all
