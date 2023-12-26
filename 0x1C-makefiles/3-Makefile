@@ -13,17 +13,22 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
+# compile source into object files
 %.o : %.c m.h
 	$(CC) -c $< -o $@
 
+# remove temporary files
 clean :
 	$(RM) -f *~ $(NAME)
 
+# remove object files
 oclean :
 	$(RM) -f $(OBJ)
 
+# remove temporary files, executable and object files
 fclean:
 	$(RM) -f *~ $(NAME)
 	$(RM) -f $(OBJ)
 
-re : clean all
+# remove object files and recompile all files
+re : oclean all
