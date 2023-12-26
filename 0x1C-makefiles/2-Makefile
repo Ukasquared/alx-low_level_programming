@@ -1,9 +1,9 @@
 # create a makefile
 # list of variables 
-CC := gcc
-SRC := school.c main.c
-OBJ := $(SRC:.c=.o) #converts all the source files files into object files
-NAME := school
+CC = gcc
+SRC = school.c main.c
+OBJ = $(SRC:.c=.o) #converts all the source files files into object files
+NAME = school
 
 # `all` is a convention used to build the program
 all : $(NAME)
