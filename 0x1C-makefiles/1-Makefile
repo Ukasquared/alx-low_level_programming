@@ -1,8 +1,8 @@
 # using variables in makfiles
 
-SRC = main.c school.c
-
 all : school
 
+SRC = main.c school.c
+
 school : $(SRC)
-	cc -o school $(SRC)
+	CC -o school $(SRC)
