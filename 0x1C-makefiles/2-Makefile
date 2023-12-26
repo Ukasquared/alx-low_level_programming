@@ -1,0 +1,15 @@
+# create a makefile
+
+CC = gcc
+SRC = school.c main.c
+OBJ = school.o main.o
+NAME = school
+
+all : $(NAME)
+
+$(NAME) :  $(OBJ)
+	$(CC) -o $(NAME) $(OBJ)
+
+$(OBJ) : $(SRC)
+	$(CC) -c $(SRC)
+
