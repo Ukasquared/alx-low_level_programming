@@ -1,15 +1,17 @@
 # create a makefile
+# list of variables 
+CC := gcc
+SRC := school.c main.c
+OBJ := $(SRC:.c=.o) #converts all the source files files into object files
+NAME := school
 
-CC = gcc
-SRC = school.c main.c
-OBJ = school.o main.o
-NAME = school
-
+# `all` is a convention used to build the program
 all : $(NAME)
 
-$(NAME) :  $(OBJ)
+# creates an executable from object file
+$(NAME) : $(OBJ)
 	$(CC) -o $(NAME) $(OBJ)
 
-$(OBJ) : $(SRC)
-	$(CC) -c $(SRC)
-
+# compile source files into coresponding object files using pattern matching
+%.o : %.c m.h
+	$(CC) -c $< -o $@
