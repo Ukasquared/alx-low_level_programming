@@ -7,22 +7,19 @@ def island_perimeter(grid):
     calculates and returns the
     perimeter of an island
     """
-    if grid is not None:
-        if grid != [] or isinstance(grid, list):
-            peri = 0
-            row = len(grid)
-            col = len(grid[0])
-            if 1 not in grid[0] and 1 not in grid[row - 1]:
-                for i in range(row):
-                    for j in range(col):
-                        if grid[i][j] == 1:
-                            peri += 4
-                            if grid[i - 1][j] == 1:
-                                peri -= 1
-                            if grid[i + 1][j] == 1:
-                                peri -= 1
-                            if grid[i][j - 1] == 1:
-                                peri -= 1
-                            if grid[i][j + 1] == 1:
-                                peri -= 1
-                return peri
+    peri = 0
+    row = len(grid)
+    col = len(grid[0])
+    for i in range(row):
+        for j in range(col):
+            if grid[i][j] == 1:
+                 peri += 4
+                 if i > 0 and grid[i - 1][j] == 1:
+                     peri -= 1
+                 if i < (row - 1) and grid[i + 1][j] == 1:
+                     peri -= 1
+                 if j > 0 and grid[i][j - 1] == 1:
+                     peri -= 1
+                 if j < (col - 1)  and  grid[i][j + 1] == 1:
+                     peri -= 1
+    return peri
