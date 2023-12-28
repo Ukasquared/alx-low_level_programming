@@ -1,7 +1,12 @@
 #!/usr/bin/python3
 """ This module will return the perimeter of an island"""
 
+
 def island_perimeter(grid):
+    """ this module
+    calculates and returns the
+    perimeter of an island
+    """
     peri = 0
     row = len(grid)
     col = len(grid[0])
@@ -18,7 +23,7 @@ def island_perimeter(grid):
                     if grid[i - 1] and grid[i - 1][j] == 1:
                         peri += 3
                     else:
-                        peri +=4
+                        peri += 4
                 h_flag = 1
             elif h_flag == 1 and grid[i][j] == 1:
                 peri += 2
