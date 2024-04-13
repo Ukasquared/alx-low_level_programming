@@ -1,6 +1,6 @@
 #include "search_algos.h"
 
-/**
+/*
  * find_val - find the search value recursively
  * @min_index: the minimum index of array
  * @max_index: the maximum index of array
@@ -38,7 +38,7 @@ int find_val(int *arr, size_t min_index, size_t max_index, int value)
 }
 
 
-/**
+/*
  * binary_search - searches for a value in a sorted array
  * @array: the array to search for value
  * @size: the size of the array
