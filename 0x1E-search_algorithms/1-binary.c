@@ -13,11 +13,9 @@ int find_val(int *arr, size_t min_index, size_t max_index, int value)
 {
 	size_t i, mid;
 
-	if ( min_index <= max_index)
-	{	
+	if ( min_index <= max_index) {	
 		printf("Searching in array: ");
-		for (i = min_index; i <= max_index; i++)
-		{
+		for (i = min_index; i <= max_index; i++) {
 			if (i < max_index)
 				printf("%d, ", arr[i]);
 			else
@@ -25,17 +23,14 @@ int find_val(int *arr, size_t min_index, size_t max_index, int value)
 		}
 		printf("\n");
 		mid = (min_index + max_index) / 2;
-		if (arr[mid] == value)
-		{
+		if (arr[mid] == value) {
 			return (mid);
 		}
-		if (arr[mid] < value)
-		{
+		if (arr[mid] < value) {
 			min_index = mid + 1;
 			return (find_val(arr, min_index, max_index, value));
 		}
-		if (arr[mid] > value)
-		{
+		if (arr[mid] > value) {
  			max_index = mid - 1;
 			return (find_val(arr, min_index, max_index, value));
 		}
